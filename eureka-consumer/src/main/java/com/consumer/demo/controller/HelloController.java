@@ -27,8 +27,9 @@ public class HelloController {
 	
 	@GetMapping("consumer")
 	public String Hello() {
-		
+		//服务选取
 		ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-client");
+		//链接拼接
 	    String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/hello?name=consumer";
 	    return restTemplate.getForObject(url, String.class);
 	}
