@@ -25,8 +25,8 @@ public class HystrixController {
 	HystrixServer hystrixServer;
 
 	@GetMapping("/hystrix")
-	public String dc() {
-		return hystrixServer.hystrix();
+	public void dc() {
+		 hystrixServer.hystrix();
 	}
 	
 }

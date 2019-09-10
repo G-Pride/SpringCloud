@@ -24,13 +24,14 @@ public class HystrixServerImpl implements HystrixServer{
 	
 	@Override
 	@HystrixCommand(fallbackMethod = "fallbackResult")
-	public String hystrix() {
-		
-		return restTemplate.getForObject("http://eureka-client/hello?name=hystrix", String.class);
+	public void hystrix() {
+		long start = System.currentTimeMillis();
+		String result = restTemplate.getForObject("http://eureka-client/hello?name=hystrix", String.class);
+		System.out.println("----result:"+result);
+		System.out.println("----spent time:"+ (System.currentTimeMillis()-start)+"ms");
 	}
-	
-	public String fallbackResult() {
-
-		return "fallback";
+	 
+	public void fallbackResult() {
+		System.out.println("----fallback");
 	}
 }

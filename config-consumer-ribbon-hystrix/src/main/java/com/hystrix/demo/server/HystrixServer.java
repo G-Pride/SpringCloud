@@ -11,6 +11,6 @@ package com.hystrix.demo.server;
  */
 public interface HystrixServer {
 
-	public String hystrix();
+	public void hystrix();
 
 }

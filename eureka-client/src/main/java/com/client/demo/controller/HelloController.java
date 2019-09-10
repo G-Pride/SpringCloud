@@ -18,7 +18,7 @@ public class HelloController {
 
 	@GetMapping("/hello")
 	public String hello(String name) throws InterruptedException {
-		//Thread.sleep(1000L);
+		//Thread.sleep(15000L); 
 		return "this is from "+name;
 	}
 }
